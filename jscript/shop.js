@@ -3,13 +3,14 @@ import { articulos } from "./articulos.js";
 const rowArticulos = document.getElementById("row-articulos");
 const go = document.getElementById("go");
 
+
 document.addEventListener("DOMContentLoaded", async () => {
   const art = await articulos();
-  console.log(art);
+  
 
   art.forEach((element) => {
-    const { name, price, image1 } = element;
-    const id = element.id;
+    const { id, name, price, image1 } = element;
+
     rowArticulos.innerHTML += `
         <div class="col col-md-4 my-4">
           <div class="card" style="width: 18rem">
@@ -21,11 +22,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="card-body">
               <h5 class="card-title">${name}</h5>
               <p class="card-text">${price}</p>
-              <a id="go" href="../index.html" class="btn btn-primary">Go</a>
+              <a id="${id}" class="btn btn-primary go">Go</a>
             </div>
           </div>
         </div>
         `;
   });
 });
-
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("go")) {
+    let id = e.target.id
+    localStorage.setItem("articuloId", JSON.stringify(id))
+    window.location.href = "../pages/productDetails.html";
+  }
+})
