@@ -1,8 +1,9 @@
-body{
-    font-family: 'Poppins', sans-serif;
-}
-:root {
-    --color-soft-blue: hsl(231, 69%, 60%);
-    --color-soft-red: hsl(0, 94%, 66%);
-    --color-greyish-blue: hsl(229, 8%, 60%);
-    --color-very-dark-blue: hsl(229, 31%, 21%);}
+header {
+    min-height: 10vh;
+  }
+  main {
+    min-height: 80vh;
+  }
+  footer {
+    min-height: 10vh;
+  }
